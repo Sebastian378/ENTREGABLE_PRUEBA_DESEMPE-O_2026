@@ -1,0 +1,75 @@
+USE db_sebas_vargas;
+
+CREATE TABLE transaction(
+	transaction_id INT AUTO_INCREMENT PRIMARY KEY,
+	transaction_date DATE ,
+	quantity INT,
+	ticket_id INT,
+	FOREIGN KEY (ticket_id) REFERENCES tickets(ticket_id),
+	attendee_id INT,
+	FOREIGN KEY (attendee_id) REFERENCES attendee(attendee_id)
+);
+
+CREATE TABLE tickets(
+	ticket_id INT AUTO_INCREMENT PRIMARY KEY,
+	ticket_price DECIMAL(10,2),
+	ticket_type VARCHAR(30)
+)
+
+CREATE TABLE attendee(
+	attendee_id INT AUTO_INCREMENT PRIMARY KEY,
+	attendee_name VARCHAR(100),
+	attendee_email VARCHAR(100),
+	attendee_city VARCHAR(80)
+);
+
+CREATE TABLE organizer(
+	organizer_id INT AUTO_INCREMENT PRIMARY KEY,
+	organizer_name VARCHAR(100),
+	organizer_email VARCHAR(100)
+);
+
+CREATE TABLE events(
+	event_id INT AUTO_INCREMENT PRIMARY KEY,
+	event_name VARCHAR(100),
+	event_category VARCHAR(70),
+	event_date DATE
+);
+
+CREATE TABLE venue(
+	venue_id INT AUTO_INCREMENT PRIMARY KEY,
+	venue_name VARCHAR(100),
+	venue_city VARCHAR(100)
+);
+
+CREATE TABLE transaction_event(
+	transaction_event_id INT AUTO_INCREMENT PRIMARY KEY,
+	event_id INT,
+	FOREIGN KEY (event_id) REFERENCES events(event_id),
+	organizer_id INT,
+	FOREIGN KEY (organizer_id) REFERENCES organizer(organizer_id),
+	attendee_id INT,
+	FOREIGN KEY (attendee_id) REFERENCES attendee(attendee_id),
+	transaction_id INT,
+	FOREIGN KEY (transaction_id) REFERENCES transaction(transaction_id),
+	venue_id INT,
+	FOREIGN KEY (venue_id) REFERENCES venue(venue_id),
+	ticket_id INT,
+	FOREIGN KEY (ticket_id) REFERENCES tickets(ticket_id)
+	
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
