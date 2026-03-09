@@ -1,23 +1,23 @@
-# ENTREGABLE_PRUEBA_DESEMPE-O_2026
+# DELIVERABLE_PRUEBA_DESEMPE-O_2026
 
 
-Este proyecto es parte de la iniciativa de modernización de datos de EventFlow Systems.
-El objetivo es transformar una estructura de datos plana basada en Excel en una base de datos relacional adecuadamente diseñada que permita un almacenamiento eficiente, consistencia y consultas analíticas.
+This project is part of EventFlow’s data modernization initiative.
+The goal is to transform an Excel-based flat data structure into a properly designed relational database that enables efficient storage, consistency and analytical queries.
 
-Anteriormente, toda la información se almacenaba en hojas de cálculo donde la información se mezclaban en los mismos registros.
-Esto causó varios problemas:
+Previously, all information was stored in spreadsheets where information was mixed into the same records.
+This caused several problems:
 
-Duplicación de datos
-Precios inconsistentes de las entradas
-Informes y análisis difíciles
-Falta de integridad de los datos
+Data duplication
+Inconsistent ticket prices
+Difficult reporting and analysis
+Lack of data integrity
 
-Para resolver estos problemas, se diseñó un esquema de base de datos relacional en MySQL siguiendo los principios de normalización.
+To solve these problems, a relational database schema was designed in MySQL following the principles of normalization.
 
-Diseño de la base de datos
-Enfoque de diseño
+Database design
+Design approach
 
-El conjunto de datos plano contiene las siguientes columnas:
+The flat dataset contains the following columns:
 
 
 TransactionID
@@ -37,37 +37,37 @@ OrganizerName
 OrganizerEmail
 
 
-Dado que esta estructura mezcla información de múltiples entidades del mundo real, el primer paso fue identificar las entidades centrales en el sistema.
+Since this structure mixes information from multiple real-world entities, the first step was to identify the central entities in the system.
 
-Las principales entidades identificadas fueron:
+The main entities identified were:
 
-Asistentes
-Organizadores
-Eventos
-Lugares
-Tipos de ticket
-Transacciones
-Detalles de la transacción
+Attendees
+Organizers
+Events
+Places
+Ticket types
+Transactions
+Transaction details
 
-El esquema fue diseñado siguiendo la Tercera Forma Normal (3NF) para eliminar la redundancia y asegurar la integridad de los datos.
+The scheme was designed following the Third Normal (3NF) to eliminate redundancy and ensure data integrity.
 
-Modelo de relación de entidades
+Entity relationship model
 
-La estructura de la base de datos separa los datos en múltiples tablas relacionadas.
-Relaciones principales:
+The database structure separates data into multiple related tables.
+Main relationships:
 
-Un evento puede tener múltiples tipos de ticket
-Un participante puede realizar múltiples transacciones
-Una transacción puede contener múltiples compras de boletos
+An event can have multiple ticket types
+A participant can make multiple transactions
+A transaction can contain multiple ticket purchases
 
-Estructura conceptual:
+Conceptual structure:
 
-Asistentes
-Transacciones
+Attendees
+Transactions
 TransactionDetails
 TicketTypes
-Eventos
-Organizadores
-Lugares
+Events
+Organizers
+Places
 
-Esta estructura evita la duplicación y garantiza que cada entidad se almacene solo una vez.
+This structure avoids duplication and ensures that each entity is stored only once.
